@@ -15,10 +15,7 @@ We're assuming you are running this demo on a Linux Machine (Ubuntu 16.04) or Wi
 #### CLIs
 * A local Docker daemon and properly configured `docker` CLI. See [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/) for installation instructions
 
-* Xcode - Available in the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-
-  * Needed for mongodb and postgres install
-
+* VS Code - Available in the [here](https://code.visualstudio.com/)
 
 * If you prefer to install the pre-requisite tools manually, you may run the following commands:
   
