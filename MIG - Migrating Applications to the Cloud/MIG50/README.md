@@ -8,55 +8,62 @@ This repo contains the source code for running the session demos. See installati
 
 ## Getting Started
 
-We're assuming you are running this demo on a macOS Machine. If you aren't, you'll need to change how you install the pre-requisites. Please see the linked documentation in each item for instructions on how to install it on your system.
+We're assuming you are running this demo on a Linux Machine (Ubuntu 16.04) or Windows Subsystem Linux (WSL). If you aren't, you'll need to change how you install the pre-requisites. Please see the linked documentation in each item for instructions on how to install it on your system.
 
 ### Prerequisites
 
 #### CLIs
-* A local Docker daemon and properly configured `docker` CLI. See [here](https://docs.docker.com/docker-for-mac/) for installation instructions
+* A local Docker daemon and properly configured `docker` CLI. See [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/) for installation instructions
 
 * Xcode - Available in the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 
   * Needed for mongodb and postgres install
 
-* [Homebrew](https://brew.sh/) - this is the first CLI tool that we'll use to install the tools below
-  
-  To install homebrew, run the following command:
-   `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-`
-* To quickly get started with all pre-requisite tools you need to run the demo, you may run the following command after installing Homebrew and Xcode:
-  `brew bundle`
 
 * If you prefer to install the pre-requisite tools manually, you may run the following commands:
   
-  * The `az` CLI. See [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest&wt.mc_id=msignitethetour-github-mig50) for how to install it or you can install with the following:
+  * The `az` CLI. See [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest&wt.mc_id=msignitethetour-github-mig50) for how to install it or you can install with the following:
   ```console
-    $ brew update && brew install azure-cli
+    $ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash    
     ```
+    Note: This script is only verified for Ubuntu 16.04+ and Debian 8+. It may not work on other distributions.
+
   * [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?wt.mc_id=msignitethetour-github-mig50). Install with the following:
 
     ```console
-    $ brew tap azure/functions
-    $ brew update && brew install azure-functions-core-tools
+    $ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    $ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
   * The [`jq`](https://stedolan.github.io/jq/) tool. Install with the following:
 
     ```console
-    $ brew update && brew install jq
+    $ sudo apt-get install jq
     ```
   * The `kubectx` binary. See [here](https://github.com/ahmetb/kubectx) for how to install it or you can install with the following:
   ```console
-    $ brew update && brew install kubectx
+    $ sudo apt install kubectx
     ```
   * [MongoDB](https://www.mongodb.com/) to enable data to be uploaded into Cosmos DB. Install with the following:
+    Step 1: Import the MongoDB repository
     ```console
-    $ brew update && brew install mongo
+     $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
     ```
-    NOTE: You may need to install Xcode for mongo install to succeed. Installing just the Command Line Tools is not sufficient.
+    Create a source list file for MongoDB
+    ```console
+     $  echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    ```
+    Update the local package repository
+    ```console
+     $  sudo apt-get update
+    ```
+    Step 2: Install the MongoDB packages
+    ```console
+     $  sudo apt-get install -y mongodb-org
+    ```
 
   * The `psql` tool for seeding PostgreSQL data. To install it, run:
     ```console
-    $ brew update && brew install postgresql
+    $ sudo apt-get install postgresql
     ```
 
 #### Environment Variables
