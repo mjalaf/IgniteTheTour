@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
 source ./scripts/variables.sh
 
 prompt az group deployment create -g $(rg) --mode Incremental --template-file scripts/frontdoor/template.json \

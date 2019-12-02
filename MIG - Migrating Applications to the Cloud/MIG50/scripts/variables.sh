@@ -1,22 +1,23 @@
-#!/bin/bash
+#/bin/bash
 #set -eou pipefail
 
-BASE=mig50
+BASE=mig50cl
 PRESENTER=`az account show | jq .user.name | sed 's/^"\([^@]*\)@.*.com"$/\1/'`
 LOCATION=eastus
 LOCATION2=westus2
-SUB='Ignite the Tour'
+SUB='Visual Studio Ultimate with MSDN'
 DB_BASE=tailwind
 PG_HOST_BASE=".postgres.database.azure.com"
 PG_USER_BASE=tuser
-PG_PASS='asdf1234)(*&^)'
+PG_PASS='Pass1word'
 COLLECTION=inventory
-KUBERNETESVERSION=1.14.6
+KUBERNETESVERSION=1.15.5
 CLUSTER_NAME=mig50
 NODECOUNT=3
 
-function prompt(){
-  dryrun=${DRY_RUN:-}
+function prompt()
+{
+dryrun=${DRY_RUN:-}
   disable=${DISABLE_PROMPT:-}
 
   echo -e "\n\n\033[1;32m$@\033[0m"
@@ -28,8 +29,8 @@ function prompt(){
   if [ -z "$dryrun" ]; then
     $@
   fi
-}
 
+}
 function base() 
 {
     local  base=$BASE
@@ -46,6 +47,7 @@ function rg()
     echo "$rg"
 
 }
+
 function rg2()
 {
     local rg2=$(base)$(presenter)2
@@ -141,6 +143,7 @@ function funcname()
     local funcname=function$(rg)
     echo "$funcname"
 }
+
 function prodbaseurl()
 {
     local prodbaseurl="https://product-service-$(rg).azurewebsites.net"
@@ -223,10 +226,6 @@ function fdaddress()
     local fdaddress=$(rg).azurefd.net
     echo "$fdaddress"
 }
-# function revisionId(){
-#     local revisionId=$(helm ls --output json | jq -r '.Releases[0].Revision')
-#     echo "$revisionId"
-# }
 
 # tests below
 #echo Base: $(base)

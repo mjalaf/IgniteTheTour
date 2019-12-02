@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
 source ./scripts/variables.sh
 
 PUBLIC_IP=`curl -4 ifconfig.co`

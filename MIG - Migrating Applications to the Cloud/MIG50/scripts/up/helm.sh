@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
 source ./scripts/variables.sh
 # requires AKS to be installed with ./scripts/up/aks.sh
 # https://docs.helm.sh/using_helm/#installing-helm

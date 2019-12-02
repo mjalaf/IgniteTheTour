@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
 source ./scripts/variables.sh
 
 echo "Creating KeyVault $(akvname) in resource group $(rg)"

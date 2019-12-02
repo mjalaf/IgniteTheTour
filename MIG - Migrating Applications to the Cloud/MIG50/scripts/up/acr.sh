@@ -1,5 +1,6 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
+
 source ./scripts/variables.sh
 
 echo "Creating ACR $(acrname) in resource group $(rg)"

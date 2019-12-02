@@ -2,4 +2,4 @@
 #set -eou pipefail
 source ./scripts/variables.sh
 
-az acr login --name $(acrname)
+sudo az acr login --name $(acrname)

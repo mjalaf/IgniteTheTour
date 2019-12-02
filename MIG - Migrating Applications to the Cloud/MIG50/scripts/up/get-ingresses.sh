@@ -1,6 +1,6 @@
 #!/bin/bash
-set -eou pipefail
-source ../variables.sh
+#set -eou pipefail
+source ./scripts/variables.sh
 
 if [ "$(clustername)" != "$(kubectl config current-context)" ]; then
     prompt kubectl config use-context $(clustername)

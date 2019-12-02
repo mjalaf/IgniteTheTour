@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-source ./scripts/variables.sh
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source "$DIR/../variables.sh"
 
 # delete front door
 echo "Deleting front door $(fdname) in resource group $(rg)"

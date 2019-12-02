@@ -1,6 +1,7 @@
 #!/bin/bash
 #set -eou pipefail
-source ./scripts/variables.sh
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source "$DIR/../variables.sh"
 
 # Local context cleanup for AKS 1
 kubectl config unset users.$(clustername)

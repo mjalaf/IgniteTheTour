@@ -1,6 +1,6 @@
 #!/bin/bash
-set -eou pipefail
-source ../scripts/variables.sh
+#set -eou pipefail
+source ./scripts/variables.sh
 
 echo "Frontend service address: $(fdfrontend)"
 echo "Inventory service address: $(fdinventory)"

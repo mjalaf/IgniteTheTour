@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
 source ./scripts/variables.sh
 
 # needs to be sudo on many systems b/c it writes the kubectl binary to /usr/local/bin

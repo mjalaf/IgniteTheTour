@@ -1,6 +1,7 @@
 #!/bin/bash
-set -eou pipefail
-source ../../scripts/variables.sh
+#set -eou pipefail
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source "$DIR/../variables.sh"
 
 revisionId1=$(<rev1.txt)
 revisionId2=$(<rev2.txt)

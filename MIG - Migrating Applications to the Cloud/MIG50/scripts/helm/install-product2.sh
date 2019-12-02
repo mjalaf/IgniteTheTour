@@ -1,6 +1,7 @@
 #!/bin/bash
-set -eou pipefail
-source ../../scripts/variables.sh
+#set -eou pipefail
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source "$DIR/../variables.sh"
 
 if [ "$(clustername2)" != "$(kubectl config current-context)" ]; then
     prompt kubectl config use-context $(clustername2)

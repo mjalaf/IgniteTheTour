@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -eou pipefail
-source ../../scripts/variables.sh
+source ../../../scripts/variables.sh
 
 BUILD_COMMAND="docker build "
 prompt $BUILD_COMMAND  -f Dockerfile \

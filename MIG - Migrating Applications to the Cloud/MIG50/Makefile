@@ -6,6 +6,8 @@ docker: docker-frontend docker-inventory docker-product
 
 allup: setup secrets setup-kubernetes
 
+step: setup-fd 
+
 demo: setup secrets kubeconfig setup-kubernetes setup-kubernetes2 acrbuild helm helm2 setup-fd 
 
 reset-demo: helm-frontend2

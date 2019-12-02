@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eou pipefail
+#set -eou pipefail
 source ./scripts/variables.sh
 # requires AKS 2nd cluster to be installed with ./scripts/up/aks2.sh
 
